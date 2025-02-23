@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <title> INST377 - Lab 4 </title>
+    <link rel="stylesheet" href="INST377 - Lab 4 CSS styling.css">
+</head>
+
+<body>
+    <h1 id="Title of Page"> INST377 - Lab 4 </h1>
+
+    <!--Alert button part-->
+    <div class = "section">
+        <form onsubmit="alertName(event)">
+            <input type="text" id="inputtingName" placeholder="Enter your name" required>
+            <button type="submit">Alert Me</button>
+        </form>
+    </div>
+
+    <br>
+
+    <!--Page color change part-->
+    <div class="section">
+        <button onclick="toggleColor()">Change Color</button>
+    </div>
+    
+    <br>
+
+    <!--Validation of text part-->
+    <div class="section">
+        <form onsubmit="validateText(event)">
+            <input type="text" id="inputtingText" placeholder="Enter text">
+            <button type="submit">Validate Text</button>
+        </form>
+    </div>
+
+    <br>
+
+    <!--Add Text part-->
+    <div class="section">
+        <button onclick="addText()">Add Text</button>
+    </div>
+
+    <br>
+    
+    <!--Adding javascript-->
+    <script>
+            function alertName(event) {
+                event.preventDefault();
+                let name = document.getElementById("inputtingName").value;
+                alert("Hi " + name + "!");
+            }
+    
+            function toggleColor() {
+                document.body.style.backgroundColor = 
+                    document.body.style.backgroundColor === "blue" ? "green" : "blue";
+            }
+    
+            function validateText(event) {
+                event.preventDefault();
+                let input = document.getElementById("inputtingText").value;
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if (validation.test(input)) {
+                    alert("Don't ever put that text down again!");
+                } else {
+                    alert("Text is valid!");
+                }
+            }
+    
+            function addText() {
+                let heading = document.getElementById("Title of Page");
+                heading.textContent += " Add Text";
+            }
+        </script>
+</body>
+
+</html>
